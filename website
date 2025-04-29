@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atul Rai – Salesforce Developer | CRM & Web Solutions</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Salesforce Developer with 7+ years of experience in CRM, LWC, Pardot, APIs, and Web Development.">
+  <meta name="author" content="Atul Rai">
+  <link rel="canonical" href="https://your-portfolio-url.com">
+
+  <!-- Open Graph / Twitter Cards -->
+  <meta property="og:title" content="Atul Rai – Salesforce Developer">
+  <meta property="og:description" content="Explore the portfolio of Atul Rai – Salesforce, Pardot, Web, and API Integration Expert.">
+  <meta property="og:image" content="https://your-site.com/images/preview.png">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+
+  <style>
+    :root {
+      --primary: #2A2A72;
+      --secondary: #009FFD;
+      --accent: #FF3C83;
+      --dark: #232528;
+      --light: #F8F9FA;
+      --gray: #6c757d;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--dark);
+      line-height: 1.7;
+
+    }
+
+    .logo-text {
+      background: linear-gradient(45deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-weight: 800;
+      letter-spacing: -1px;
+      font-size: 28px;
+    }
+
+    header {
+      background: rgba(255,255,255,0.98);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-scrolled {
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      padding: 10px 0;
+    }
+
+    .navbar-nav {
+      flex-direction: row;
+    }
+
+    .nav-link {
+      color: var(--dark) !important;
+      font-weight: 500;
+      position: relative;
+      margin: 0 10px;
+      padding: 8px 0 !important;
+      transition: 0.3s;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background: var(--secondary);
+      transition: 0.3s;
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    .banner {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      padding: 180px 0 120px;
+      clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+      margin-bottom: 60px;
+      margin-top: 70px;
+    }
+
+    .banner h1 {
+      font-size: 3.5rem;
+      color: white;
+      font-weight: 700;
+      text-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    }
+
+    .banner p {
+      color: rgba(255,255,255,0.9);
+      font-size: 1.25rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 50px;
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 4px;
+      background: var(--secondary);
+      border-radius: 2px;
+    }
+
+    .section-padding {
+      padding: 100px 0;
+    }
+
+    .bg-light {
+      background-color: var(--light) !important;
+    }
+
+    /* About Section */
+    .profile-img {
+      border-radius: 15px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+      transition: 0.4s;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .profile-img:hover {
+      transform: scale(1.03);
+    }
+
+    /* Skills Section */
+    .skill-box {
+      background: white;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: 0.4s;
+      border: 2px solid transparent;
+      height: 100%;
+      margin-bottom: 30px;
+    }
+
+    .skill-box:hover {
+      transform: translateY(-10px);
+      border-color: var(--secondary);
+    }
+
+    .skill-tag {
+      background: var(--light);
+      border-radius: 50px;
+      padding: 8px 20px;
+      margin: 8px 5px;
+      font-size: 14px;
+      font-weight: 500;
+      display: inline-block;
+      transition: 0.3s;
+    }
+
+    .skill-tag:hover {
+      background: var(--secondary);
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    /* Services Section */
+    .service-box {
+      background: white;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: 0.4s;
+      height: 100%;
+      text-align: center;
+      border-bottom: 4px solid transparent;
+    }
+
+    .service-box:hover {
+      transform: translateY(-10px);
+      border-bottom-color: var(--secondary);
+    }
+
+    .service-icon {
+      font-size: 2.5rem;
+      color: var(--secondary);
+      margin-bottom: 20px;
+    }
+
+    /* Projects Section */
+    .project-box {
+      background: white;
+      border-radius: 15px;
+      padding: 30px;
+      position: relative;
+      overflow: hidden;
+      transition: 0.4s;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      margin-bottom: 30px;
+    }
+
+    .project-box::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, var(--secondary), transparent);
+      transform: rotate(45deg);
+      opacity: 0;
+      transition: 0.5s;
+    }
+
+    .project-box:hover::before {
+      opacity: 0.1;
+      top: -20%;
+      left: -20%;
+    }
+
+    .project-box h4 {
+      position: relative;
+      z-index: 2;
+    }
+
+    .project-box p {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Contact Section */
+    .contact-info {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+    }
+
+    .contact-info a {
+      color: var(--dark);
+      transition: 0.3s;
+    }
+
+    .contact-info a:hover {
+      color: var(--secondary);
+      text-decoration: none;
+    }
+
+    .social-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--light);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 10px;
+      transition: 0.3s;
+      color: var(--dark);
+      text-decoration: none;
+    }
+
+    .social-icon:hover {
+      transform: translateY(-5px);
+      background: var(--secondary);
+      color: white;
+    }
+
+    .btn-primary {
+      background-color: var(--secondary);
+      border-color: var(--secondary);
+      padding: 12px 30px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: all 0.3s;
+      border-radius: 50px;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary);
+      border-color: var(--primary);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--secondary);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s;
+    }
+
+    .back-to-top.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      background: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    /* Mobile Menu */
+    .navbar-toggler {
+      border: none;
+      padding: 0;
+      font-size: 1.5rem;
+      color: var(--dark);
+    }
+
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255,255,255,0.98);
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s;
+    }
+
+    .mobile-menu.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .mobile-menu .nav-link {
+      font-size: 1.5rem;
+      margin: 15px 0;
+    }
+
+    .close-menu {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .banner h1 { font-size: 2.5rem; }
+      .banner { 
+        padding: 150px 0 100px; 
+        clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+        margin-top: 60px;
+      }
+      .section-padding { padding: 70px 0; }
+      .logo-text { font-size: 24px; }
+      .desktop-menu { display: none; }
+      .mobile-menu-btn { display: block !important; }
+    }
+
+    @media (min-width: 769px) {
+      .mobile-menu-btn { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="py-3">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div class="logo-text">Atul Rai</div>
+      
+      <!-- Desktop Menu -->
+      <nav class="desktop-menu">
+        <ul class="d-flex list-unstyled mb-0">
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+      
+      <!-- Mobile Menu Button -->
+      <button class="mobile-menu-btn navbar-toggler" type="button">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu">
+    <span class="close-menu"><i class="fas fa-times"></i></span>
+    <a href="#about" class="nav-link">About</a>
+    <a href="#skills" class="nav-link">Skills</a>
+    <a href="#services" class="nav-link">Services</a>
+    <a href="#projects" class="nav-link">Projects</a>
+    <a href="#contact" class="nav-link">Contact</a>
+  </div>
+
+  <section class="banner text-white">
+    <div class="container text-center">
+      <h1 class="mb-4">Hi, I'm Atul Rai</h1>
+      <p>Salesforce Developer with 7+ years of experience in designing scalable CRM solutions across Sales, Service, and Experience Cloud. Specialized in LWC, Apex, Pardot, and third-party integrations.</p>
+    </div>
+  </section>
+
+  <section id="about" class="section-padding">
+    <div class="container">
+      <h2 class="text-center section-title">About Me</h2>
+      <div class="row align-items-center">
+        <div class="col-lg-6 mb-5 mb-lg-0">
+          <img src="https://via.placeholder.com/600x500" alt="Atul Rai" class="img-fluid profile-img">
+        </div>
+        <div class="col-lg-6">
+          <p class="lead">Salesforce Developer with 7+ years in IT, including 4+ years on the Salesforce platform.</p>
+          <p>I work across multiple clouds including Sales, Service, and Experience Cloud. With extensive experience in Apex, LWC, Pardot, and REST API integrations, I've helped organizations build efficient, scalable CRM systems. I also have strong skills in frontend technologies and third-party integrations.</p>
+          <a href="#contact" class="btn btn-primary mt-3">Contact Me</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="section-padding bg-light">
+    <div class="container">
+      <h2 class="text-center section-title">Skills</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="skill-box">
+            <h4 class="mb-4"><i class="fas fa-cloud mr-2 text-primary"></i>Salesforce Platform</h4>
+            <div class="skill-tag">Apex</div>
+            <div class="skill-tag">LWC</div>
+            <div class="skill-tag">Visualforce</div>
+            <div class="skill-tag">Flows</div>
+            <div class="skill-tag">Validation Rules</div>
+            <div class="skill-tag">Reports</div>
+            <div class="skill-tag">Dashboards</div>
+            <div class="skill-tag">SOQL/SOSL</div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="skill-box">
+            <h4 class="mb-4"><i class="fas fa-bullhorn mr-2 text-primary"></i>Marketing Cloud</h4>
+            <div class="skill-tag">Pardot</div>
+            <div class="skill-tag">Lead Scoring</div>
+            <div class="skill-tag">Engagement Studio</div>
+            <div class="skill-tag">Email Campaigns</div>
+            <div class="skill-tag">User Sync</div>
+            <div class="skill-tag">Dynamic Content</div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="skill-box">
+            <h4 class="mb-4"><i class="fas fa-code mr-2 text-primary"></i>Web & Integration</h4>
+            <div class="skill-tag">REST API</div>
+            <div class="skill-tag">WordPress</div>
+            <div class="skill-tag">Mailchimp</div>
+            <div class="skill-tag">Twilio</div>
+            <div class="skill-tag">JavaScript</div>
+            <div class="skill-tag">HTML</div>
+            <div class="skill-tag">CSS</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="section-padding">
+    <div class="container">
+      <h2 class="text-center section-title">Services</h2>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="service-box">
+            <div class="service-icon">
+              <i class="fas fa-cogs"></i>
+            </div>
+            <h5>CRM Development</h5>
+            <p>Custom Apex, LWC, flows, and validation rules for tailored business solutions.</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="service-box">
+            <div class="service-icon">
+              <i class="fas fa-robot"></i>
+            </div>
+            <h5>Marketing Automation</h5>
+            <p>Lead journey, scoring, and campaign automation using Pardot and Salesforce flows.</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="service-box">
+            <div class="service-icon">
+              <i class="fas fa-plug"></i>
+            </div>
+            <h5>Integrations & APIs</h5>
+            <p>Connect Salesforce with external platforms like Mailchimp, Twilio, WordPress & more.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="section-padding bg-light">
+    <div class="container">
+      <h2 class="text-center section-title">Project Summary</h2>
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="project-box">
+            <h4>Insurance CRM Portal</h4>
+            <p>Developed complete LWC-based CRM to manage policies, agents, and renewals. Built dynamic approval and transaction flows. Integrated separate LWR sites for agency and affiliate roles.</p>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="project-box">
+            <h4>Real Estate CRM with Rightmove API</h4>
+            <p>Enabled automatic property listing sync and lead generation using API and async Apex. Designed user-friendly listing dashboards and data models.</p>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="project-box">
+            <h4>Marketing Automation Platform</h4>
+            <p>Integrated Pardot with Salesforce for lead scoring and email campaigns. Created engagement studios and automated journeys based on user behavior.</p>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="project-box">
+            <h4>Healthcare Payment Integration</h4>
+            <p>Created web-based payment form in PHP with Salesforce data sync. Captured user data and linked to service records using REST API.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section-padding">
+    <div class="container text-center">
+      <h2 class="section-title">Get In Touch</h2>
+      <div class="contact-info">
+        <p><i class="fas fa-envelope mr-2"></i> <a href="mailto:theatulrai@gmail.com">theatulrai@gmail.com</a></p>
+        <p><i class="fas fa-phone mr-2"></i> +91-8545035946</p>
+      </div>
+      <div class="social-icons mt-4">
+        <a href="https://linkedin.com/in/theAtulRai" class="social-icon" target="_blank">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://github.com/your-github-profile" class="social-icon" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="#" class="social-icon">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-4 bg-dark text-white text-center">
+    <div class="container">
+      <p class="mb-0">&copy; 2023 Atul Rai. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    $(document).ready(function(){
+      // Smooth scrolling for all links
+      $("a").on('click', function(event) {
+        if (this.hash !== "" && $(this).attr("href").charAt(0) === '#') {
+          event.preventDefault();
+          var hash = this.hash;
+          
+          $('html, body').animate({
+            scrollTop: $(hash).offset().top - 80
+          }, 800, function(){
+            window.location.hash = hash;
+          });
+        }
+      });
+      
+      // Navbar background change on scroll
+      $(window).scroll(function(){
+        if($(window).scrollTop() > 50) {
+          $('header').addClass('header-scrolled');
+        } else {
+          $('header').removeClass('header-scrolled');
+        }
+        
+        // Back to top button
+        if ($(this).scrollTop() > 300) {
+          $('.back-to-top').addClass('active');
+        } else {
+          $('.back-to-top').removeClass('active');
+        }
+      });
+      
+      // Mobile menu toggle
+      $('.mobile-menu-btn').click(function(){
+        $('.mobile-menu').addClass('active');
+      });
+      
+      $('.close-menu').click(function(){
+        $('.mobile-menu').removeClass('active');
+      });
+      
+      // Close mobile menu when clicking a link
+      $('.mobile-menu .nav-link').click(function(){
+        $('.mobile-menu').removeClass('active');
+      });
+      
+      // Add active class to current section in navigation
+      $(window).scroll(function() {
+        var scrollDistance = $(window).scrollTop() + 100;
+        
+        $('section').each(function(i) {
+          if ($(this).position().top <= scrollDistance && $(this).position().top + $(this).outerHeight() > scrollDistance) {
+            $('.nav-link.active').removeClass('active');
+            $('.nav-link').eq(i).addClass('active');
+          }
+        });
+      }).scroll();
+    });
+  </script>
+</body>
+</html>
